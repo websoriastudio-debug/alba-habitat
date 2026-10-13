@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ALBA Hábitat | Casas prefabricadas (proyecto conceptual)</title>
+  <meta name="description" content="Demo conceptual de una empresa ficticia de casas prefabricadas, diseñada por WebsoriaStudio. Las viviendas, superficies e imágenes son ejemplos.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FAF9F4">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23414936'/%3E%3Cpath d='M7 22 16 9l9 13' fill='none' stroke='%23F0DEA2' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600&family=Funnel+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============ ENCABEZADO ============ -->
+  <header class="cabecera" id="cabecera">
+    <div class="wrap cabecera-fila">
+      <a class="marca" href="#inicio" aria-label="ALBA Hábitat, ir al inicio">ALBA <span>Hábitat</span></a>
+
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-boton-lineas" aria-hidden="true"></span>
+        <span class="menu-boton-texto">Menú</span>
+      </button>
+
+      <nav class="menu" id="menu" aria-label="Principal">
+        <ul>
+          <li><a href="#modelos">Modelos</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#proceso">Cómo funciona</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a class="btn btn-primario btn-chico" href="#contacto">Solicitar asesoría</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============ PORTADA ============ -->
+    <section class="portada" id="inicio">
+      <div class="wrap portada-texto">
+        <div class="portada-titular">
+          <p class="etiqueta entra" style="--e:0">Proyecto conceptual de vivienda prefabricada</p>
+          <h1>
+            <span class="linea"><span class="entra" style="--e:1">Tu próxima etapa</span></span>
+            <span class="linea"><span class="entra" style="--e:2">tiene casa.</span></span>
+          </h1>
+        </div>
+        <div class="portada-lado">
+          <p class="bajada entra" style="--e:3">Explora viviendas prefabricadas con espacios abiertos, materiales cálidos y distribuciones para distintas formas de vivir.</p>
+          <div class="acciones entra" style="--e:4">
+            <a class="btn btn-primario" href="#modelos">Explorar modelos</a>
+            <a class="btn btn-secundario" href="#contacto">Solicitar asesoría</a>
+          </div>
+        </div>
+      </div>
+
+      <figure class="portada-figura">
+        <div class="portada-marco">
+          <div class="portada-zoom">
+            <img class="portada-img" src="img/portada-2000.webp"
+                 srcset="img/portada-1100.webp 1100w, img/portada-2000.webp 2000w" sizes="100vw"
+                 width="2000" height="1125" fetchpriority="high" decoding="async"
+                 alt="Casa modular de una planta con grandes ventanales, cubierta de madera y jardín, iluminada desde el interior.">
+          </div>
+        </div>
+        <figcaption class="wrap">Visualización conceptual. Las viviendas, superficies e imágenes de este sitio son ejemplos de la demo.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ CATÁLOGO ============ -->
+    <section class="seccion catalogo" id="modelos" aria-labelledby="modelos-titulo">
+      <div class="wrap">
+        <div class="encabezado" data-reveal>
+          <h2 id="modelos-titulo">Encuentra espacio para tu manera de vivir.</h2>
+          <p>Seis modelos conceptuales, de 36 a 176&nbsp;m². Filtra por dormitorios o superficie y abre la ficha del que más se parezca a lo que buscas.</p>
+        </div>
+
+        <form class="filtros" id="filtros" aria-label="Filtrar modelos" data-reveal>
+          <fieldset>
+            <legend>Dormitorios</legend>
+            <div class="chips" id="filtro-dormitorios"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Superficie</legend>
+            <div class="chips" id="filtro-superficie"></div>
+          </fieldset>
+          <div class="filtros-pie">
+            <p class="filtros-cuenta" id="filtros-cuenta" role="status" aria-live="polite"></p>
+            <button class="enlace-boton" type="reset" id="filtros-reset" hidden>Restablecer filtros</button>
+          </div>
+        </form>
+
+        <ul class="modelos" id="lista-modelos"></ul>
+
+        <div class="vacio" id="modelos-vacio" hidden>
+          <h3>Ningún modelo coincide con esos filtros.</h3>
+          <p>Prueba con otra combinación de dormitorios y superficie, o vuelve a ver los seis modelos.</p>
+          <button class="btn btn-secundario" type="button" id="vacio-reset">Restablecer filtros</button>
+        </div>
+
+        <noscript><p class="aviso-js">Activa JavaScript para ver el catálogo de modelos.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============ RECORRIDO VISUAL ============ -->
+    <section class="seccion recorrido" id="recorrido" aria-labelledby="recorrido-titulo">
+      <div class="wrap recorrido-rejilla">
+        <div class="recorrido-texto">
+          <div data-reveal>
+            <h2 id="recorrido-titulo">Imagina lo que pasa dentro.</h2>
+            <p>Tres ambientes de referencia para pensar en la luz, los materiales y los recorridos de una casa antes de hablar de planos.</p>
+          </div>
+          <ol class="recorrido-indice" aria-hidden="true">
+            <li data-indice="sala" class="es-activo">Sala con luz natural</li>
+            <li data-indice="cocina">Cocina abierta</li>
+            <li data-indice="terraza">Terraza</li>
+          </ol>
+        </div>
+
+        <div class="recorrido-fotos">
+          <figure class="ambiente" data-ambiente="sala">
+            <div class="foto foto-zoom" data-reveal="foto">
+              <img src="img/sala-1500.webp" srcset="img/sala-800.webp 800w, img/sala-1500.webp 1500w"
+                   sizes="(min-width: 1024px) 55vw, 100vw" width="1500" height="1125" loading="lazy" decoding="async"
+                   alt="Sala de doble altura con ventanales de suelo a techo, listones de madera y vista al jardín.">
+            </div>
+            <figcaption data-reveal>
+              <h3>Sala con luz natural</h3>
+              <p>Ventanales altos y doble altura: la luz entra desde la mañana y el jardín forma parte del estar.</p>
+              <small>Fotografía de referencia</small>
+            </figcaption>
+          </figure>
+
+          <figure class="ambiente" data-ambiente="cocina">
+            <div class="foto foto-zoom" data-reveal="foto">
+              <img src="img/cocina-1500.webp" srcset="img/cocina-800.webp 800w, img/cocina-1500.webp 1500w"
+                   sizes="(min-width: 1024px) 55vw, 100vw" width="1500" height="1000" loading="lazy" decoding="async"
+                   alt="Cocina abierta con frentes de madera, isla blanca y taburetes de madera.">
+            </div>
+            <figcaption data-reveal>
+              <h3>Cocina abierta</h3>
+              <p>Una isla para cocinar acompañado, frentes de madera y espacio libre alrededor para moverse sin estorbar.</p>
+              <small>Fotografía de referencia</small>
+            </figcaption>
+          </figure>
+
+          <figure class="ambiente" data-ambiente="terraza">
+            <div class="foto foto-zoom" data-reveal="foto">
+              <img src="img/terraza-1500.webp" srcset="img/terraza-800.webp 800w, img/terraza-1500.webp 1500w"
+                   sizes="(min-width: 1024px) 55vw, 100vw" width="1500" height="1000" loading="lazy" decoding="async"
+                   alt="Terraza cubierta con suelo y techo de madera, sillones claros y plantas alrededor.">
+            </div>
+            <figcaption data-reveal>
+              <h3>Terraza</h3>
+              <p>Un ambiente cubierto y abierto a la vez, con suelo de madera y sombra para estar afuera a cualquier hora.</p>
+              <small>Visualización de referencia</small>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section class="seccion proyectos" id="proyectos" aria-labelledby="proyectos-titulo">
+      <div class="wrap">
+        <div class="encabezado" data-reveal>
+          <h2 id="proyectos-titulo">Tres lugares, tres maneras de habitar.</h2>
+          <p>Proyectos conceptuales de la demo: ideas de implantación en bosque, valle y costa. No son obras realizadas.</p>
+        </div>
+
+        <div class="galeria">
+          <figure class="proyecto proyecto-ancho">
+            <div class="foto foto-zoom" data-reveal="foto">
+              <img src="img/bosque-1500.webp" srcset="img/bosque-800.webp 800w, img/bosque-1500.webp 1500w"
+                   sizes="(min-width: 1024px) 90vw, 100vw" width="1500" height="997" loading="lazy" decoding="async"
+                   alt="Casa de dos plantas con grandes ventanales entre los árboles de un bosque.">
+            </div>
+            <figcaption data-reveal>
+              <h3>Refugio del Bosque</h3>
+              <p>Una casa que se acomoda entre los árboles y se abre con ventanales hacia el claro.</p>
+              <small>Fotografía de referencia</small>
+            </figcaption>
+          </figure>
+
+          <figure class="proyecto proyecto-alto">
+            <div class="foto foto-zoom" data-reveal="foto">
+              <img src="img/valle-1500.webp" srcset="img/valle-800.webp 800w, img/valle-1500.webp 1500w"
+                   sizes="(min-width: 1024px) 38vw, 100vw" width="1500" height="1000" loading="lazy" decoding="async"
+                   alt="Volúmenes oscuros a dos aguas en la ladera de un valle, con montañas al fondo.">
+            </div>
+            <figcaption data-reveal>
+              <h3>Casa del Valle</h3>
+              <p>Volúmenes escalonados que siguen la pendiente y miran a las montañas.</p>
+              <small>Fotografía de referencia</small>
+            </figcaption>
+          </figure>
+
+          <figure class="proyecto proyecto-medio">
+            <div class="foto foto-zoom" data-reveal="foto">
+              <img src="img/costa-1500.webp" srcset="img/costa-800.webp 800w, img/costa-1500.webp 1500w"
+                   sizes="(min-width: 1024px) 52vw, 100vw" width="1500" height="1000" loading="lazy" decoding="async"
+                   alt="Vivienda de líneas rectas con un gran marco abierto hacia el mar, sobre una costa rocosa.">
+            </div>
+            <figcaption data-reveal>
+              <h3>Residencia Costa Clara</h3>
+              <p>Un gran marco orientado al mar, con el interior protegido del viento.</p>
+              <small>Visualización conceptual</small>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESO ============ -->
+    <section class="seccion proceso" id="proceso" aria-labelledby="proceso-titulo">
+      <div class="wrap">
+        <h2 id="proceso-titulo" data-reveal>De la primera conversación al plan, en cuatro pasos.</h2>
+
+        <ol class="pasos" data-reveal="linea">
+          <li data-reveal style="--d:0">
+            <span class="paso-numero" aria-hidden="true">1</span>
+            <h3>Cuéntanos cómo quieres vivir.</h3>
+            <p>Quiénes van a habitar la casa, cómo son sus días y qué lugar tienen en mente.</p>
+          </li>
+          <li data-reveal style="--d:1">
+            <span class="paso-numero" aria-hidden="true">2</span>
+            <h3>Explora modelos y distribuciones.</h3>
+            <p>Comparamos superficies y recorridos hasta encontrar un punto de partida.</p>
+          </li>
+          <li data-reveal style="--d:2">
+            <span class="paso-numero" aria-hidden="true">3</span>
+            <h3>Define los detalles de tu proyecto.</h3>
+            <p>Materiales, aberturas y ajustes de distribución según el terreno y el uso.</p>
+          </li>
+          <li data-reveal style="--d:3">
+            <span class="paso-numero" aria-hidden="true">4</span>
+            <h3>Planifica los siguientes pasos.</h3>
+            <p>Con la evaluación del proyecto se ordena qué viene después y qué hace falta para avanzar.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PREGUNTAS FRECUENTES ============ -->
+    <section class="seccion preguntas" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="wrap preguntas-rejilla">
+        <div class="preguntas-intro" data-reveal>
+          <h2 id="preguntas-titulo">Preguntas frecuentes</h2>
+          <p>La viabilidad de cada vivienda depende de su ubicación y de la evaluación del proyecto. Por eso aquí no encontrarás precios ni plazos cerrados.</p>
+        </div>
+
+        <div class="acordeon" data-reveal>
+          <details name="preguntas">
+            <summary>¿Necesito tener un terreno antes de empezar?</summary>
+            <div class="respuesta">
+              <p>Para una primera conversación, no. Para avanzar, sí: los accesos, la pendiente y la normativa del lugar condicionan qué vivienda es viable, y eso se confirma al evaluar el proyecto.</p>
+            </div>
+          </details>
+          <details name="preguntas">
+            <summary>¿Puedo personalizar un modelo?</summary>
+            <div class="respuesta">
+              <p>Los modelos son puntos de partida. La distribución, los acabados y las aberturas pueden ajustarse; el alcance de cada cambio se define según la ubicación y la evaluación del proyecto.</p>
+            </div>
+          </details>
+          <details name="preguntas">
+            <summary>¿Cómo llega la vivienda al terreno?</summary>
+            <div class="respuesta">
+              <p>El transporte se planifica según la distancia, el estado de los accesos y el tamaño de los módulos. Su viabilidad se estudia caso por caso, con la ubicación ya definida.</p>
+            </div>
+          </details>
+          <details name="preguntas">
+            <summary>¿Qué alcance tiene una cotización?</summary>
+            <div class="respuesta">
+              <p>Una cotización detalla qué está contemplado y qué no: vivienda, transporte, montaje y trabajos en el terreno. No adelantamos precios ni plazos sin datos, porque dependen de la ubicación y de la evaluación de cada proyecto.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="seccion contacto" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="wrap contacto-rejilla">
+        <div class="contacto-texto" data-reveal>
+          <h2 id="contacto-titulo">Tu próxima casa empieza con una idea.</h2>
+          <p>Cuéntanos qué buscas y qué modelo te llamó la atención. Con eso alcanza para empezar a conversar.</p>
+          <p class="contacto-nota">Este formulario es una simulación: forma parte de una demo y no envía ni guarda ningún dato.</p>
+        </div>
+
+        <div class="contacto-panel" data-reveal style="--d:1">
+          <form class="formulario" id="formulario" novalidate>
+            <div class="campo">
+              <label for="f-nombre">Nombre</label>
+              <input id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+              <p class="error" id="e-nombre" hidden></p>
+            </div>
+
+            <div class="campo">
+              <label for="f-correo">Correo electrónico</label>
+              <input id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-correo">
+              <p class="error" id="e-correo" hidden></p>
+            </div>
+
+            <div class="campo">
+              <label for="f-modelo">Modelo de interés</label>
+              <select id="f-modelo" name="modelo" required aria-describedby="e-modelo">
+                <option value="">Elige una opción</option>
+                <option value="sin-definir">Todavía no lo sé</option>
+              </select>
+              <p class="error" id="e-modelo" hidden></p>
+            </div>
+
+            <fieldset class="campo" id="f-terreno" aria-describedby="e-terreno">
+              <legend>¿Ya tienes terreno?</legend>
+              <div class="opciones">
+                <label class="opcion"><input type="radio" name="terreno" value="Sí"><span>Sí</span></label>
+                <label class="opcion"><input type="radio" name="terreno" value="No"><span>No</span></label>
+                <label class="opcion"><input type="radio" name="terreno" value="Lo estoy buscando"><span>Lo estoy buscando</span></label>
+              </div>
+              <p class="error" id="e-terreno" hidden></p>
+            </fieldset>
+
+            <div class="campo">
+              <label for="f-mensaje">Mensaje</label>
+              <textarea id="f-mensaje" name="mensaje" rows="4" required aria-describedby="a-mensaje e-mensaje"></textarea>
+              <p class="ayuda" id="a-mensaje">Por ejemplo: para cuántas personas es la casa y en qué zona la imaginas.</p>
+              <p class="error" id="e-mensaje" hidden></p>
+            </div>
+
+            <button class="btn btn-primario btn-ancho" type="submit">Solicitar asesoría</button>
+          </form>
+
+          <div class="simulacion" id="simulacion" tabindex="-1" hidden>
+            <p class="etiqueta">Simulación de la demo</p>
+            <h3>El formulario está completo, pero no se envió nada.</h3>
+            <p>ALBA Hábitat es un proyecto conceptual. Tus datos no salieron de esta página ni se guardaron. En un sitio real, en este punto recibirías la confirmación de tu solicitud.</p>
+            <dl class="resumen" id="resumen"></dl>
+            <button class="btn btn-secundario" type="button" id="simulacion-volver">Volver al formulario</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE ============ -->
+  <footer class="pie">
+    <div class="wrap pie-rejilla">
+      <div>
+        <p class="marca marca-pie">ALBA <span>Hábitat</span></p>
+        <p class="pie-aviso">Proyecto conceptual. ALBA Hábitat es una marca ficticia: las viviendas, superficies e imágenes son ejemplos y no corresponden a productos ni obras reales.</p>
+      </div>
+      <nav aria-label="Pie de página">
+        <ul>
+          <li><a href="#modelos">Modelos</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#proceso">Cómo funciona</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="pie-firma">
+        <p>Demo diseñada por <a href="../../index.html">WebsoriaStudio</a></p>
+        <p>Imágenes de Unsplash, con licencia Unsplash. <a href="FUENTES.md">Ver fuentes</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FICHA DE MODELO ============ -->
+  <dialog class="ficha" id="ficha" aria-labelledby="ficha-titulo">
+    <div class="ficha-caja">
+      <button class="ficha-cerrar" type="button" id="ficha-cerrar" aria-label="Cerrar ficha"><span aria-hidden="true"></span></button>
+      <div class="ficha-foto">
+        <img id="ficha-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="1500" height="1000" decoding="async">
+        <small id="ficha-tipo"></small>
+      </div>
+      <div class="ficha-info">
+        <p class="etiqueta">Modelo conceptual</p>
+        <h2 id="ficha-titulo"></h2>
+        <dl class="ficha-datos">
+          <div><dt>Superficie</dt><dd id="ficha-superficie"></dd></div>
+          <div><dt>Dormitorios</dt><dd id="ficha-dormitorios"></dd></div>
+        </dl>
+        <p id="ficha-descripcion"></p>
+        <h3>Características</h3>
+        <ul class="ficha-lista" id="ficha-lista"></ul>
+        <button class="btn btn-primario" type="button" id="ficha-asesoria">Solicitar asesoría</button>
+        <p class="ficha-nota">Superficie y distribución de ejemplo. No es una oferta comercial.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
